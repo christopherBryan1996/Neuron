@@ -26,6 +26,12 @@ public class Neuron {
         
         Perceptron perceptron = new Perceptron(Xs, Yd, 0.3, -5.8, 1);
         perceptron.trainig(10);
+        
+        int classi = perceptron.classification(1, 1);
+        
+        System.out.println("El resultado de clasificacion: " + classi);
+        
+        perceptron.viewWeightsAndBias();
     }
     
 }

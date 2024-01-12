@@ -53,9 +53,9 @@ public class Perceptron {
     }
     
     private double ecm (){
-        double ECM = 0;
+        double ECM;
         double [] sum = new double[2];
-        double res = 0;
+        double res;
         
         for (int i = 0; i<Yd.length; i++){
             sum[0]+=Yd[i];
@@ -80,8 +80,6 @@ public class Perceptron {
         weightAssignment();
     }
     
-   
-
     public void trainig(int epoch) {
 
         for (int i = 1; i <= epoch; i++) {
@@ -104,8 +102,24 @@ public class Perceptron {
                 break;
             }
         }
+    }
+    
+    public int classification(int x1, int x2) {
+        int x[] = {x1,x2};
+        double z = activationValue(Ws, x);
+        int y = activatioFunStep(z);
         
+        return y;
+    }
+    
+    public void viewWeightsAndBias() {
+        System.out.println("Pesos");
+        for (double i : Ws) {
+            System.out.print("W: " + i + " ");
+        }
         
+        System.out.println("\nBias");
+        System.out.println("w: " + w0 + " x: " + x0);
     }
 
 }
