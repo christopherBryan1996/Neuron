@@ -32,6 +32,8 @@ public class Neuron {
         System.out.println("El resultado de clasificacion: " + classi);
         
         perceptron.viewWeightsAndBias();
+        
+        perceptron.graf();
     }
     
 }
