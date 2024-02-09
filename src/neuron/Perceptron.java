@@ -107,14 +107,14 @@ public class Perceptron {
             grafECM[i] = ecm();
             ECMmax = grafECM[i] > ECMmax ? grafECM[i] : ECMmax;  
             ECMmin = grafECM[i] < ECMmin ? grafECM[i] : ECMmin;
+            //this.viewWeightsAndBias();
             if (ecm() <= 0.2){
                 break;
             }
         }
     }
     
-    public int classification(int x1, int x2) {
-        int x[] = {x1,x2};
+    public int classification(int x[]) {
         double z = activationValue(Ws, x);
         int y = activatioFunStep(z);
         
@@ -132,7 +132,7 @@ public class Perceptron {
     }
     
     public void graf(){
-        System.out.println("Grafica para mostrar el error cuadratico medio");
+        System.out.println("\nGrafica para mostrar el error cuadratico medio");
         for (double i = ECMmax+0.1 ; i>0; i-=0.1){
             BigDecimal roundedValue = new BigDecimal(i-0.1).setScale(1, BigDecimal.ROUND_HALF_UP);
             if (roundedValue.doubleValue() < 0) break;
